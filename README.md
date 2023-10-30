@@ -1,4 +1,4 @@
-# [Your Name]'s TourismKenya Database
+# Margaret's TourismKenya Database
 
 **Author:** Margaret Karaba
 
