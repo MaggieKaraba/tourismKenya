@@ -25,3 +25,38 @@
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-10-30 20:56:50
+
+-- TourismKenya SQL code
+
+USE TourismKenya;
+
+SELECT *
+FROM accommodations;
+
+
+SELECT room_type, COUNT(*) AS RoomTypeCount
+FROM accommodations
+GROUP BY room_type
+ORDER BY RoomTypeCount DESC
+LIMIT 1;
+
+SELECT AVG(price_per_night) AS AveragePrice
+FROM accommodations;
+
+SELECT 
+    accommodation_id,
+    CASE 
+        WHEN guest_feedback LIKE '%great%' OR guest_feedback LIKE '%nice%' OR guest_feedback LIKE '%good%' THEN 'Positive'
+        WHEN guest_feedback LIKE '%poor%' OR guest_feedback LIKE '%bad%' OR guest_feedback LIKE '%terrible%' THEN 'Negative'
+        ELSE 'Neutral'
+    END AS Sentiment
+FROM accommodations
+WHERE guest_feedback IS NOT NULL;
+
+SELECT accommodation_city, COUNT(*) AS CityCount
+FROM accommodations
+GROUP BY accommodation_city
+ORDER BY CityCount DESC
+LIMIT 1;
+
+
